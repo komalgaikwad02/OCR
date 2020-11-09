@@ -112,13 +112,14 @@ class PAN_OCR:
             PanNo_Result = self.PanNo_isvalid(readdata)
             filter_string = readdata.split(str(Birth_date))[0].split(PanNo_Result)[1]
             filter_string = filter_string.translate(str.maketrans('', '', string.punctuation)).strip()
-            str_split_line = [line for line in filter_string.split( result = ""
-'\n') if line.strip() != '']
+            str_split_line = [line for line in filter_string.split('\n') if line.strip() != '']
+            print(str_split_line)
             final_result = []
             full_name = ""
             father_name = ""
             for split_line in str_split_line:
                 split_line = str(split_line)
+                result = ""
                 if len(split_line) > 1:
                     result_string = re.findall('([A-Z][A-Z]+)', split_line)
                     for res_string in result_string:
@@ -134,9 +135,10 @@ class PAN_OCR:
             if len(final_result) == 2:
                 full_name = final_result[0].rstrip()
                 father_name = final_result[1].rstrip()
-            return full_name,father_name
+
+            return full_name, father_name
         except:
-            return None, None
+                return None, None
 
 # obj = OCR()
 # text = '''

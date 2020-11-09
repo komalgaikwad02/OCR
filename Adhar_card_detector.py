@@ -93,22 +93,4 @@ class Adhar_OCR:
             return None
 
 
-    # def extract_Gender(self, readdata):
-    #     try:
-    #         text = readdata.lower()
-    #         print (text)
-    #         text ="ma1e"
-    #         if ('female' or 'fema1e') in text:
-    #             gender = "Female"
-    #             print ("Yes, String found")
-    #             return gender
-    #         elif ('male' or 'ma1e' )in text:
-    #             gender = "Male"
-    #             print ("No, String not found")
-    #             return  gender
-    #         else:
-    #             print("INVALID INPUT")
-    #     except:
-    #         return None
-
 
