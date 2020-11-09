@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/> -->
+    <title>Upload Image</title>
+  </head>
+  <body style="background-color: rgb(231, 248, 238 );">
+  <center>
+    <div style="border: 5px solid #555;padding: 15px;">
+    <h2 style="color:rgb(197, 66, 245);font-size:30px;"> AADHAR and PAN Card Text Extraction using OCR </h2>
+
+    <form method=post enctype=multipart/form-data>
+      <h3 style="color:rgb(240, 17, 151);"> Please Select the type of Card Which you want to upload..? </h3>
+      <div style="color:rgb(36, 240, 169);font-weight: bold; font-size:20px;">
+
+      <input type="radio" name = "card" value="pan" > PAN card
+      <input type="radio" name = "card" value="aadhar" > Aadhar Card </br>
+
+      </div>
+      <p style="font-size:25px;color:blue;">
+        <input type=file name=file>
+         <input type=submit value=Upload>
+      </p>
+    </form>
+    </div>
+
+    <h1 style="color:Green;">Result:
+      <div style="color:rgb(252, 23, 34);">
+      {% if msg %}
+      <h1>{{ msg }}</h1>
+      {% endif %}
+      </div>
+    </h1>
+
+    <div style="border: 5px solid #555;padding: 15px;">
+      <p style="font-weight:bold; color:rgb(201, 76, 76);">Uploaded Image</p>
+    {% if img_src %}
+      <img src="{{ img_src }}">
+    {% endif %}
+    </div>
+
+
+    <br>
+
+    <div style="border: 5px solid #555;padding: 15px;">
+    {% if extracted_text %}
+      <p style="font-weight:bold; color:rgb(201, 76, 76); font-size:22px;"> The extracted text from the image above is: </p>
+      {% for i in range(0, len) %}
+      <li style="color:tomato;"> <b> {{extracted_text[i]}} </b> </li>
+      {%endfor%}
+    {% else %}
+      <p style="font-weight:bold; color:rgb(201, 76, 76);"> Card Details show here...! </p>
+      </center>
+    {% endif %}
+    </div>
+  </body>
+</html>
